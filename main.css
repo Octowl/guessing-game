@@ -1,3 +1,22 @@
 body {
   background-color: #555;
 }
+
+h1 {
+  line-height: 1.2em;
+  text-align: center;
+  padding: 25px;
+}
+
+input {
+  text-align: center;
+}
+
+#victim-guess:focus {
+  box-shadow: 0 0 10px rgba(148, 35, 35, 0.77);
+}
+
+.guess-controls {
+  width: 30%;
+  margin: 0 auto;
+}
