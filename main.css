@@ -1,18 +1,34 @@
+@font-face {
+  font-family: Alice;
+  src: url("fonts/Beyond Wonderland.ttf");
+}
+
 html {
   min-height: 100%;
 }
+
 body {
   background-color: #0F0F0F;
 }
 
 h1 {
+  font: 4.5em Alice, "Palatino Linotype", "Book Antiqua", Palatino, serif;
   line-height: 1.2em;
-  padding: 25px;
+  padding: 35px;
+}
+
+h1::first-line {
+  color: #460702;
+  font-size: 2em;
 }
 
 h1, h2 {
   color: #F6E6CE;
   text-align: center;
+}
+
+h2, button {
+  font: 2em "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
 input, button {
