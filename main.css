@@ -8,7 +8,8 @@ html {
 }
 
 body {
-  background-color: #0F0F0F;
+  background: rgba(15, 15, 15, 0.98) url(images/octowl.svg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 h1 {
