@@ -1,14 +1,17 @@
+html {
+  min-height: 100%;
+}
 body {
-  background-color: #555;
+  background-color: #0F0F0F;
 }
 
 h1 {
   line-height: 1.2em;
-  text-align: center;
   padding: 25px;
 }
 
-h2 {
+h1, h2 {
+  color: #F6E6CE;
   text-align: center;
 }
 
@@ -17,8 +20,33 @@ input, button {
   margin: 10px 0;
 }
 
+#victim-guess {
+  background-color: #EDE8E2;
+  border-color: #C3B3A6;
+}
+
 #victim-guess:focus {
-  box-shadow: 0 0 10px rgba(148, 35, 35, 0.77);
+  box-shadow: 0 0 20px #78040D;
+  border-color: #460702;
+}
+
+#guess {
+  background: linear-gradient(#460702,#78040D);
+  border-color: #300702;
+  color: #EDE8E2;
+}
+
+#guess:hover {
+  background: linear-gradient(#300702,#460702);
+}
+
+#reset, #hint {
+  background: linear-gradient(#C3B3A6,#EDE8E2);
+  border-color: #A39376;
+}
+
+#reset:hover, #hint:hover {
+  background: linear-gradient(#A39376,#C3B3A6);
 }
 
 .guess-controls {
