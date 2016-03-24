@@ -8,9 +8,13 @@ h1 {
   padding: 25px;
 }
 
+h2 {
+  text-align: center;
+}
+
 input, button {
   text-align: center;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 #victim-guess:focus {
