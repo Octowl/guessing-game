@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body class="container">
-    <h1>The Ancient Octowl<br />slumbers beneath the tumultuous waves, dreaming of a number that will<br />end the world</h1>
-    <h2>Find the secret number and use it to banish The Octowl</h2>
-    <div class="guess-controls row">
-        <input type="text" id="victim-guess" class="form-control input-lg col-xs-12" placeholder="1-100">
-        <button id="guess" class="btn btn-lg btn-info col-xs-12">BANISH</button>
+    <div class="content">
+      <h1>The Ancient Octowl<br />slumbers beneath the tumultuous waves, dreaming of a number that will<br />end the world</h1>
+      <h2>Find the secret number and use it to banish The Octowl</h2>
+      <div class="guess-controls row">
+          <input type="text" id="victim-guess" class="form-control input-lg col-xs-12" placeholder="1-100">
+          <button id="guess" class="btn btn-lg btn-info col-xs-12">BANISH</button>
+      </div>
+      <div class="button-controls">
+        <button id="reset" class="btn btn-lg btn-default">Surrender</button>
+        <button id="hint" class="btn btn-lg btn-default">Seek Wisdom</button>
+      </div>
+      <h2 id="counter">5 More Attempts<br />Until The Octowl Awakens</h2>
     </div>
-    <div class="button-controls">
-      <button id="reset" class="btn btn-lg btn-default">Surrender</button>
-      <button id="hint" class="btn btn-lg btn-default">Seek Wisdom</button>
-    </div>
-    <h2 id="counter">5 More Attempts<br />Until The Octowl Awakens</h2>
   </body>
 </html>
