@@ -4,6 +4,8 @@
 var playersGuess,
 		winningNumber
 
+var previousGuesses = [];
+
 /* **** Guessing Game Functions **** */
 
 // Generate the Winning Number
@@ -30,7 +32,17 @@ function lowerOrHigher(){
 // Check if the Player's Guess is the winning number
 
 function checkGuess(){
-	// add code here
+	if (playersGuess === winningNumber) {
+		//player wins
+	} else {
+		if ($.inArray(playersGuess, previousGuesses) == -1) {
+			previousGuesses.push(playersGuess);
+			//try again
+		} else {
+			//duplicate
+		}
+
+	}
 }
 
 // Create a provide hint button that provides additional clues to the "Player"
