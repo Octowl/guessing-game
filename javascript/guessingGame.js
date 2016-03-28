@@ -11,7 +11,8 @@ var playersGuess,
 // Generate the Winning Number
 
 function generateWinningNumber(){
-	// add code here
+  // Returns a random number between 1 - 100
+	return Math.floor(Math.random() * 100 + 1);
 }
 
 // Fetch the Players Guess
