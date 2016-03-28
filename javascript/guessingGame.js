@@ -1,10 +1,7 @@
 /* **** Global Variables **** */
 // try to elminate these global variables in your project, these are here just to start.
 
-var playersGuess,
-    winningNumber
-
-
+var playersGuess;
 
 /* **** Guessing Game Functions **** */
 
@@ -47,3 +44,6 @@ function playAgain(){
 
 
 /* **** Event Listeners/Handlers ****  */
+$(document).ready(function(){
+  var winningNumber = generateWinningNumber();
+});
