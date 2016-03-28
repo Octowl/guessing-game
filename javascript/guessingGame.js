@@ -15,7 +15,9 @@ function generateWinningNumber(){
 // Fetch the Players Guess
 
 function playersGuessSubmission(){
-	// add code here
+	var guess = $("#victim-guess");
+	playersGuess = +guess.val();
+	guess.val("");
 }
 
 // Determine if the next guess should be a lower or higher number
@@ -46,4 +48,6 @@ function playAgain(){
 /* **** Event Listeners/Handlers ****  */
 $(document).ready(function(){
   var winningNumber = generateWinningNumber();
+
+  $("#guess").click(playersGuessSubmission);
 });
