@@ -21,6 +21,7 @@ function playersGuessSubmission(){
 	var guess = $("#victim-guess");
 	playersGuess = +guess.val();
 	guess.val("");
+	checkGuess();
 }
 
 // Determine if the next guess should be a lower or higher number
@@ -32,16 +33,18 @@ function lowerOrHigher(){
 // Check if the Player's Guess is the winning number
 
 function checkGuess(){
+	var message;
 	if (playersGuess === winningNumber) {
 		//player wins
+		console.log("win!");
 	} else {
 		if ($.inArray(playersGuess, previousGuesses) == -1) {
 			previousGuesses.push(playersGuess);
-			//try again
+			message = "Your weak attempts are just making The Octowl angry"
 		} else {
-			//duplicate
+			message = "The Octowl is amused as you repeat yourself in desperation"
 		}
-
+		$('#mockery').text(message);
 	}
 }
 
