@@ -35,8 +35,7 @@ function lowerOrHigher(){
 function checkGuess(){
 	var message;
 	if (playersGuess === winningNumber) {
-		//player wins
-		console.log("win!");
+		playerWins();
 	} else {
 		if ($.inArray(playersGuess, previousGuesses) == -1) {
 			previousGuesses.push(playersGuess);
@@ -46,6 +45,23 @@ function checkGuess(){
 		}
 		$('#mockery').text(message);
 	}
+}
+
+// The palyer has won the Game
+
+function playerWins() {
+	$('h2, .guess-controls, #reset, #hint').fadeOut(600, function(){
+		$('h1').fadeOut(600, function(){
+			$(this).text('The Ancient Octowl\n' +
+			'has been banished to the ocean depths\n' +
+			'There it shall slumber for a thousand years, ' +
+			'dreaming of a new number that will end the world');
+			$(this).html($(this).html().replace(/\n/g, '<br/>'));
+			$(this).fadeIn(600, function(){
+				$('#reset').text('Battle Again!').fadeIn();
+			});
+		});
+	});
 }
 
 // Create a provide hint button that provides additional clues to the "Player"
