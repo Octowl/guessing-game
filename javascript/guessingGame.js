@@ -43,11 +43,11 @@ function checkGuess(){
 		} else {
 			message = "The Octowl is amused as you repeat yourself in desperation"
 		}
-		$('#mockery').text(message);
+		wrongGuess(message);
 	}
 }
 
-// The palyer has won the Game
+// The palyer has won the game (animation)
 
 function playerWins() {
 	$('h2, .guess-controls, #reset, #hint').fadeOut(600, function(){
@@ -62,6 +62,17 @@ function playerWins() {
 			});
 		});
 	});
+}
+
+// The player guessed wrong (animation)
+
+function wrongGuess(message) {
+	$('#mockery').fadeOut(100, function(){
+		$(this).text(message).fadeIn(100);
+	});
+	$('body').addClass('level-'+previousGuesses.length)
+					 .removeClass('level-'+(previousGuesses.length - 1));
+	$('#counter').text('' + 5 - previousGuesses.length + ' More Attempts Until The Octowl Awakens')
 }
 
 // Create a provide hint button that provides additional clues to the "Player"
