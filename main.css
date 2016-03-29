@@ -85,6 +85,9 @@ input, button {
   box-shadow: 0 0 20px #78040D;
   border-color: #460702;
 }
+#oracle {
+  display: none;
+}
 #guess {
   background: linear-gradient(#460702, #78040D);
   border-color: #300702;
