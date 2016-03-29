@@ -126,4 +126,5 @@ function playAgain() {
 $(document).ready(function() {
   winningNumber = generateWinningNumber();
   $("#guess").click(playersGuessSubmission);
+	$("#hint").click(provideHint);
 });
