@@ -128,7 +128,7 @@ function provideHint() {
 // Allow the "Player" to Play Again
 
 function playAgain() {
-  // add code here
+	document.location.reload();
 }
 
 
@@ -137,4 +137,5 @@ $(document).ready(function() {
   winningNumber = generateWinningNumber();
   $("#guess").click(playersGuessSubmission);
   $("#hint").click(provideHint);
+	$("#reset").click(playAgain);
 });
