@@ -6,6 +6,19 @@ var playersGuess,
 
 var previousGuesses = [];
 
+/* **** Prototype Additions **** */
+
+// Shuffle the array in place
+Array.prototype.shuffle = function(){
+	var j, x, i;
+    for (i = this.length; i; i -= 1) {
+        j = Math.floor(Math.random() * i);
+        x = this[i - 1];
+        this[i - 1] = this[j];
+        this[j] = x;
+    }
+};
+
 /* **** Guessing Game Functions **** */
 
 // Generate the Winning Number
@@ -121,6 +134,7 @@ function provideHint() {
     }
     numbers.push(newNum);
   }
+	numbers.shuffle();
   $('#oracle').text("The oracle has chosen the following numbers: " + numbers.join("  "))
     .show(200);
 }
