@@ -73,14 +73,22 @@ function checkGuess(){
 // The palyer has won the game (animation)
 
 function playerWins() {
+	//reset opacity
+	$('body').removeClass('level-'+previousGuesses.length)
+					 .addClass('level-0');
+	//fadeout extra controls
 	$('h2, .guess-controls, #reset, #hint').fadeOut(600, function(){
+		//fadeout heading
 		$('h1').fadeOut(600, function(){
+			//change heading to win message
 			$(this).text('The Ancient Octowl\n' +
 			'has been banished to the ocean depths\n' +
 			'There it shall slumber for a thousand years, ' +
 			'dreaming of a new number that will end the world');
 			$(this).html($(this).html().replace(/\n/g, '<br/>'));
+			//fadein heading
 			$(this).fadeIn(600, function(){
+				//change text on play again button and fadein
 				$('#reset').text('Battle Again!').fadeIn();
 			});
 		});
