@@ -2,128 +2,101 @@
   font-family: Alice;
   src: url("fonts/Beyond Wonderland.ttf");
 }
-
 html {
   min-height: 100%;
 }
-
 body {
   background: #0F0F0F url(images/octowl.svg) no-repeat center center fixed;
   background-size: cover;
   transition: background-color 0.2s ease-in-out;
 }
-
 h1 {
   font: 4.5em Alice, "Palatino Linotype", "Book Antiqua", Palatino, serif;
   line-height: 1.2em;
   padding: 35px;
 }
-
 h1::first-line {
   color: #460702;
   font-size: 2em;
 }
-
 h1, h2 {
   color: #F6E6CE;
   text-align: center;
 }
-
 h2, button {
   font: 2em "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
-
 input, button {
   text-align: center;
   margin: 10px 0;
 }
-
 .content {
   opacity: 1.0;
   transition: opacity 0.2s ease-in-out;
 }
-
 .level-1 {
   background-color: #1F0F0F;
 }
-
 .level-1 .content {
   opacity: 0.75;
 }
-
 .level-2 {
   background-color: #2F0F0F;
 }
-
-.level-2 .content{
+.level-2 .content {
   opacity: 0.5;
 }
-
 .level-3 {
   background-color: #3F0F0F;
 }
-
-.level-3 .content{
+.level-3 .content {
   opacity: 0.25;
 }
-
 .level-4 {
   background-color: #4F0F0F;
 }
-
-.level-4 .content{
+.level-4 .content {
   opacity: 0.1;
 }
-
 .level-5 {
   background-color: #5F0F0F;
 }
-
-.level-5 .content{
+.level-5 .content {
   opacity: 0.0;
 }
-
 .guess-controls {
   width: 30%;
   margin: 0 auto;
 }
-
 .button-controls {
   text-align: center;
   width: 40%;
   margin: 20px auto;
 }
-
 .button-controls button {
   width: 40%;
   margin: 0 auto;
 }
-
 #victim-guess {
   background-color: #EDE8E2;
   border-color: #C3B3A6;
 }
-
 #victim-guess:focus {
   box-shadow: 0 0 20px #78040D;
   border-color: #460702;
 }
-
 #guess {
-  background: linear-gradient(#460702,#78040D);
+  background: linear-gradient(#460702, #78040D);
   border-color: #300702;
   color: #EDE8E2;
 }
-
 #guess:hover {
-  background: linear-gradient(#300702,#460702);
+  background: linear-gradient(#300702, #460702);
 }
-
 #reset, #hint {
-  background: linear-gradient(#C3B3A6,#EDE8E2);
+  background: linear-gradient(#C3B3A6, #EDE8E2);
   border-color: #A39376;
 }
-
 #reset:hover, #hint:hover {
-  background: linear-gradient(#A39376,#C3B3A6);
+  background: linear-gradient(#A39376, #C3B3A6);
 }
