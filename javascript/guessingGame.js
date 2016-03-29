@@ -27,7 +27,30 @@ function playersGuessSubmission(){
 // Determine if the next guess should be a lower or higher number
 
 function lowerOrHigher(){
-	// add code here
+	// returns the difference
+	return playersGuess - winningNumber;
+}
+
+// Construct a message letting the player know how far off they are
+
+function guessMessage() {
+	var difference = lowerOrHigher();
+	var message = {};
+
+	message.strength = "Your invocation is too " + ((difference < 0) ? "weak" : "strong") + ".";
+	difference = Math.abs(difference);
+
+	if (difference > 20) {
+		message.distance = "That was so far off it banished some other unrelated elder beast!";
+	} else if (difference > 10){
+		message.distance = "You have banished...an innocent squid...";
+	} else if (difference > 5) {
+		message.distance = "That one was actually close!";
+	} else {
+		message.distance = "The Octowl feels fear for the first time in its existence!";
+	}
+
+	return message;
 }
 
 // Check if the Player's Guess is the winning number
@@ -37,11 +60,11 @@ function checkGuess(){
 	if (playersGuess === winningNumber) {
 		playerWins();
 	} else {
+		message = guessMessage();
 		if ($.inArray(playersGuess, previousGuesses) == -1) {
 			previousGuesses.push(playersGuess);
-			message = "Your weak attempts are just making The Octowl angry"
 		} else {
-			message = "The Octowl is amused as you repeat yourself in desperation"
+			message.distance = "The Octowl is amused as you repeat yourself in desperation"
 		}
 		wrongGuess(message);
 	}
@@ -67,8 +90,11 @@ function playerWins() {
 // The player guessed wrong (animation)
 
 function wrongGuess(message) {
+	$('#strength').fadeOut(100, function(){
+		$(this).text(message.strength).fadeIn(100);
+	});
 	$('#mockery').fadeOut(100, function(){
-		$(this).text(message).fadeIn(100);
+		$(this).text(message.distance).fadeIn(100);
 	});
 	$('body').addClass('level-'+previousGuesses.length)
 					 .removeClass('level-'+(previousGuesses.length - 1));
