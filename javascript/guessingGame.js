@@ -31,7 +31,12 @@ function generateWinningNumber() {
 // Fetch the Players Guess
 
 function playersGuessSubmission() {
+
+	// hide hints
+	$("#oracle").hide();
+
   var guess = $("#victim-guess");
+	// TODO: add some validation here
   playersGuess = +guess.val();
   guess.val("");
   checkGuess();
