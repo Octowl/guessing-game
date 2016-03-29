@@ -112,7 +112,17 @@ function wrongGuess(message) {
 // Create a provide hint button that provides additional clues to the "Player"
 
 function provideHint() {
-  // add code here
+  var numbers = [];
+  var hintCount = (5 - previousGuesses.length) * 2;
+  var newNum = winningNumber;
+  for (var i = hintCount; i; i--) {
+    while ($.inArray(newNum, previousGuesses.concat(numbers)) !== -1) {
+      newNum = generateWinningNumber();
+    }
+    numbers.push(newNum);
+  }
+  $('#oracle').text("The oracle has chosen the following numbers: " + numbers.join("  "))
+    .show(200);
 }
 
 // Allow the "Player" to Play Again
@@ -126,5 +136,5 @@ function playAgain() {
 $(document).ready(function() {
   winningNumber = generateWinningNumber();
   $("#guess").click(playersGuessSubmission);
-	$("#hint").click(provideHint);
+  $("#hint").click(provideHint);
 });
