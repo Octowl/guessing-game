@@ -9,14 +9,14 @@ var previousGuesses = [];
 /* **** Prototype Additions **** */
 
 // Shuffle the array in place
-Array.prototype.shuffle = function(){
-	var j, x, i;
-    for (i = this.length; i; i -= 1) {
-        j = Math.floor(Math.random() * i);
-        x = this[i - 1];
-        this[i - 1] = this[j];
-        this[j] = x;
-    }
+Array.prototype.shuffle = function() {
+  var j, x, i;
+  for (i = this.length; i; i -= 1) {
+    j = Math.floor(Math.random() * i);
+    x = this[i - 1];
+    this[i - 1] = this[j];
+    this[j] = x;
+  }
 };
 
 /* **** Guessing Game Functions **** */
@@ -32,11 +32,11 @@ function generateWinningNumber() {
 
 function playersGuessSubmission() {
 
-	// hide hints
-	$("#oracle").hide();
+  // hide hints
+  $("#oracle").hide();
 
   var guess = $("#victim-guess");
-	// TODO: add some validation here
+  // TODO: add some validation here
   playersGuess = +guess.val();
   guess.val("");
   checkGuess();
@@ -94,15 +94,32 @@ function playerWins() {
   //reset opacity
   $('body').removeClass('level-' + previousGuesses.length)
     .addClass('level-0');
+  modifyHeader('has been banished to the ocean depths\n' +
+    'There it shall slumber for a thousand years, ' +
+    'dreaming of a new number that will end the world');
+
+}
+
+// The player has lost the game (animation)
+
+function playerLoses() {
+	$('body').removeClass('level-' + previousGuesses.length)
+    .addClass('end-game');
+  modifyHeader('has arisen from the depths!\n' +
+    'It devours all it encounters!\n' +
+    'You have failed!\n' +
+    'The world ends!');
+}
+
+// Modify the header text (animation)
+
+function modifyHeader(message) {
   //fadeout extra controls
   $('h2, .guess-controls, #reset, #hint').fadeOut(600, function() {
     //fadeout heading
     $('h1').fadeOut(600, function() {
       //change heading to win message
-      $(this).text('The Ancient Octowl\n' +
-        'has been banished to the ocean depths\n' +
-        'There it shall slumber for a thousand years, ' +
-        'dreaming of a new number that will end the world');
+      $(this).text('The Ancient Octowl\n' + message);
       $(this).html($(this).html().replace(/\n/g, '<br/>'));
       //fadein heading
       $(this).fadeIn(600, function() {
@@ -116,15 +133,19 @@ function playerWins() {
 // The player guessed wrong (animation)
 
 function wrongGuess(message) {
-  $('#strength').fadeOut(100, function() {
-    $(this).text(message.strength).fadeIn(100);
-  });
-  $('#mockery').fadeOut(100, function() {
-    $(this).text(message.distance).fadeIn(100);
-  });
-  $('body').addClass('level-' + previousGuesses.length)
-    .removeClass('level-' + (previousGuesses.length - 1));
-  $('#counter').text('' + 5 - previousGuesses.length + ' More Attempts Until The Octowl Awakens')
+	$('body').addClass('level-' + previousGuesses.length)
+		.removeClass('level-' + (previousGuesses.length - 1));
+  if (previousGuesses.length == 5) {
+    playerLoses();
+  } else {
+    $('#strength').fadeOut(100, function() {
+      $(this).text(message.strength).fadeIn(100);
+    });
+    $('#mockery').fadeOut(100, function() {
+      $(this).text(message.distance).fadeIn(100);
+    });
+    $('#counter').text('' + 5 - previousGuesses.length + ' More Attempts Until The Octowl Awakens');
+  }
 }
 
 // Create a provide hint button that provides additional clues to the "Player"
@@ -139,7 +160,7 @@ function provideHint() {
     }
     numbers.push(newNum);
   }
-	numbers.shuffle();
+  numbers.shuffle();
   $('#oracle').text("The oracle has chosen the following numbers: " + numbers.join("  "))
     .show(200);
 }
@@ -147,7 +168,7 @@ function provideHint() {
 // Allow the "Player" to Play Again
 
 function playAgain() {
-	document.location.reload();
+  document.location.reload();
 }
 
 
@@ -156,5 +177,5 @@ $(document).ready(function() {
   winningNumber = generateWinningNumber();
   $("#guess").click(playersGuessSubmission);
   $("#hint").click(provideHint);
-	$("#reset").click(playAgain);
+  $("#reset").click(playAgain);
 });
