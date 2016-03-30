@@ -58,7 +58,7 @@ input, button {
 .level-4 .content {
   opacity: 0.1;
 }
-.level-5 {
+.level-5, .end-game {
   background-color: #5F0F0F;
 }
 .level-5 .content {
