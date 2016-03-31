@@ -182,6 +182,11 @@ function playAgain() {
 $(document).ready(function() {
   winningNumber = generateWinningNumber();
   $("#guess").click(playersGuessSubmission);
+  $("#victim-guess").keypress(function(e) {
+    if (e.which == 13) {
+      playersGuessSubmission();
+    }
+  });
   $("#hint").click(provideHint);
   $("#reset").click(playAgain);
   $("#oracle").on("click", "li", function() {
