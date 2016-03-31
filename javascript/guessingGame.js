@@ -103,7 +103,7 @@ function playerWins() {
 // The player has lost the game (animation)
 
 function playerLoses() {
-	$('body').removeClass('level-' + previousGuesses.length)
+  $('body').removeClass('level-' + previousGuesses.length)
     .addClass('end-game');
   modifyHeader('has arisen from the depths!\n' +
     'It devours all it encounters!\n' +
@@ -133,8 +133,8 @@ function modifyHeader(message) {
 // The player guessed wrong (animation)
 
 function wrongGuess(message) {
-	$('body').addClass('level-' + previousGuesses.length)
-		.removeClass('level-' + (previousGuesses.length - 1));
+  $('body').addClass('level-' + previousGuesses.length)
+    .removeClass('level-' + (previousGuesses.length - 1));
   if (previousGuesses.length == 5) {
     playerLoses();
   } else {
@@ -154,10 +154,10 @@ function provideHint() {
   var numbers = [];
   var hintCount = (5 - previousGuesses.length) * 2;
   var newNum = winningNumber;
-	//remove previous hints
-	$('#oracle').slideUp();
-	$("li").remove();
-	//generate new hints
+  //remove previous hints
+  $('#oracle').slideUp();
+  $("li").remove();
+  //generate new hints
   for (var i = hintCount; i; i--) {
     while ($.inArray(newNum, previousGuesses.concat(numbers)) !== -1) {
       newNum = generateWinningNumber();
@@ -165,10 +165,10 @@ function provideHint() {
     numbers.push(newNum);
   }
   numbers.shuffle();
-	numbers.forEach(function(number){
-		$('#oracle').append('<li>'+number+'</li>');
-	});
-	$('#oracle').slideDown(600);
+  numbers.forEach(function(number) {
+    $('#oracle').append('<li>' + number + '</li>');
+  });
+  $('#oracle').slideDown(600);
 }
 
 // Allow the "Player" to Play Again
@@ -184,4 +184,7 @@ $(document).ready(function() {
   $("#guess").click(playersGuessSubmission);
   $("#hint").click(provideHint);
   $("#reset").click(playAgain);
+  $("#oracle").on("click", "li", function() {
+    $("#victim-guess").val($(this).text());
+  });
 });
