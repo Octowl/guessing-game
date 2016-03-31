@@ -37,10 +37,13 @@
     $("#oracle").slideUp();
 
     var guess = $("#victim-guess");
-    // TODO: add some validation here
     playersGuess = +guess.val();
-    guess.val("");
-    checkGuess();
+    if (playersGuess > 0 && playersGuess <= 100) {
+      guess.val("");
+      checkGuess();
+    } else {
+      guess.val("");
+    }
   }
 
   // Determine if the next guess should be a lower or higher number
