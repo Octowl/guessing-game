@@ -30,6 +30,18 @@ input, button {
   text-align: center;
   margin: 10px 0;
 }
+li{
+  display: inline-block;
+  text-align: center;
+  background: linear-gradient(#460702, #78040D);
+  border-color: #300702;
+  border-radius: 5%;
+  color: #EDE8E2;
+  padding: 10px;
+  width: 60px;
+  font: 2em "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  margin: auto 10px;
+}
 .content {
   opacity: 1.0;
   transition: opacity 0.2s ease-in-out;
@@ -87,13 +99,16 @@ input, button {
 }
 #oracle {
   display: none;
+  text-align: center;
+  list-style: none;
+  margin: auto;
 }
 #guess {
   background: linear-gradient(#460702, #78040D);
   border-color: #300702;
   color: #EDE8E2;
 }
-#guess:hover {
+#guess:hover, li:hover {
   background: linear-gradient(#300702, #460702);
 }
 #reset, #hint {

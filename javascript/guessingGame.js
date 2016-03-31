@@ -33,7 +33,7 @@ function generateWinningNumber() {
 function playersGuessSubmission() {
 
   // hide hints
-  $("#oracle").hide();
+  $("#oracle").slideUp();
 
   var guess = $("#victim-guess");
   // TODO: add some validation here
@@ -154,6 +154,10 @@ function provideHint() {
   var numbers = [];
   var hintCount = (5 - previousGuesses.length) * 2;
   var newNum = winningNumber;
+	//remove previous hints
+	$('#oracle').slideUp();
+	$("li").remove();
+	//generate new hints
   for (var i = hintCount; i; i--) {
     while ($.inArray(newNum, previousGuesses.concat(numbers)) !== -1) {
       newNum = generateWinningNumber();
@@ -161,8 +165,10 @@ function provideHint() {
     numbers.push(newNum);
   }
   numbers.shuffle();
-  $('#oracle').text("The oracle has chosen the following numbers: " + numbers.join("  "))
-    .show(200);
+	numbers.forEach(function(number){
+		$('#oracle').append('<li>'+number+'</li>');
+	});
+	$('#oracle').slideDown(600);
 }
 
 // Allow the "Player" to Play Again
